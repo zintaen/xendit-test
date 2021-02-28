@@ -1,0 +1,14 @@
+body,
+#__next,
+main {
+  height: 100%;
+  max-width: calc(1366px - 32px);
+}
+
+body {
+  margin: 0 auto !important;
+}
+
+img {
+  object-fit: cover;
+}

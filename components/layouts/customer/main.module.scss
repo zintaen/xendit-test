@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-xs;
+
+  .logo {
+    position: relative;
+    height: 45px;
+    width: 45px;
+  }
+
+  .cart {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    transition: 200ms ease;
+    background: $color-gray-light;
+    color: $color-primary;
+  }
+
+  .cart_text {
+    display: inline-block;
+    margin-right: $spacing-xs;
+  }
+
+  .cart_icon {
+    font-size: $font-size-h4;
+  }
+}
