@@ -1,5 +1,5 @@
 {
-  "name": "auto-scout",
+  "name": "xendit-exam",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,6 @@
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@reduxjs/toolkit": "^1.5.0",
-    "@types/react-redux": "^7.1.15",
     "antd": "^4.13.0",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
@@ -28,9 +27,12 @@
     "ua-parser-js": "^0.7.23"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.20",
     "@types/react": "^17.0.0",
+    "@types/react-redux": "^7.1.16",
     "@types/react-responsive": "^8.0.2",
     "@types/ua-parser-js": "^0.7.35",
     "@typescript-eslint/eslint-plugin": "^4.13.0",

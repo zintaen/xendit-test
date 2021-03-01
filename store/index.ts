@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { configureStore, Action, Store } from '@reduxjs/toolkit';
-import { createWrapper, MakeStore } from 'next-redux-wrapper';
+import { createWrapper } from 'next-redux-wrapper';
 import { ThunkAction } from 'redux-thunk';
 
 import rootReducer, { StoreState } from './reducer';
@@ -8,7 +8,7 @@ import rootReducer, { StoreState } from './reducer';
 export * from './reducer';
 export type AppThunk = ThunkAction<void, StoreState, unknown, Action<string>>;
 
-const makeStore: MakeStore = () => {
+const makeStore = () => {
   const store: Store = configureStore({
     reducer: rootReducer,
   });

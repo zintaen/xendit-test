@@ -17,6 +17,8 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "comma-dangle": "off",
+    "import/no-extraneous-dependencies": "off",
+    "implicit-arrow-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",

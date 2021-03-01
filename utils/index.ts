@@ -1,2 +1,2 @@
 export * from './number';
-export * from './ssrGetResponsiveValue';
+export * from './responsive';

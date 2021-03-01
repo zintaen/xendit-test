@@ -4,7 +4,7 @@ import {
   ResponsiveProvider,
   ResponsiveValueProp,
   ssrGetResponsiveValue,
-} from '~/utils/ssrGetResponsiveValue';
+} from '~/utils/responsive';
 import Cart from '~/domains/cart';
 import { MainLayout } from '~/layouts';
 
