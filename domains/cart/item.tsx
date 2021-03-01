@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { priceFormatter } from '~/utils';
 import { CartProduct } from '~/types/product';
 
-import { deleteFromCart, updateProductAmount } from './services/slice';
+import { actions } from './services/slice';
 import styles from './item.module.scss';
 
 type Props = {
@@ -20,12 +20,12 @@ function CartItem({ cartProduct }: Props) {
   } = cartProduct;
 
   const handleConfirmDel = () => {
-    dispatch(deleteFromCart(cartProduct.id));
+    dispatch(actions.deleteFromCart(cartProduct.id));
   };
 
   const handleChangeProductAmount = (value: number) => {
     dispatch(
-      updateProductAmount({
+      actions.updateProductAmount({
         productId: cartProduct.id,
         newValue: value,
       })

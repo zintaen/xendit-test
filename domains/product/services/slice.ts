@@ -5,13 +5,13 @@ import { Product } from '~/types/product';
 import { mockFetch } from '~/mockFetcher';
 import { StoreState } from '~/store';
 
-type SliceState = {
+type State = {
   isFetching: boolean;
   items: Product[];
   selectedCategoryId: string;
 };
 
-export const mockItems: SliceState['items'] = [
+export const mockItems: State['items'] = [
   {
     id: 1,
     title: 'Hoodie black',
@@ -45,8 +45,11 @@ export const mockItems: SliceState['items'] = [
 export const fetchProductList = createAsyncThunk(
   'product/fetchList',
   async ({ categoryId }: { categoryId: string }) => {
-    const response = await mockFetch({ mockData: mockItems });
-    return response as SliceState['items'];
+    const response = await mockFetch({
+      mockData: mockItems,
+      body: { categoryId },
+    });
+    return response as State['items'];
   }
 );
 
@@ -57,10 +60,10 @@ const productSlice = createSlice({
     isFetching: false,
     items: [],
     selectedCategoryId: '',
-  } as SliceState,
+  } as State,
 
   reducers: {
-    selectCategory(state, { payload }) {
+    selectCategory(state, action: Action) {
       state.selectedCategoryId = payload;
     },
   },

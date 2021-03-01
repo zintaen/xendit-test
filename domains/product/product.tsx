@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { Product } from '~/types/product';
 
-import { addToCart } from '../cart/services/slice';
+import { actions as cartActions } from '../cart/services/slice';
 
 import styles from './product.module.scss';
 
@@ -15,23 +15,16 @@ function ProductItem({ product }: Props) {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    dispatch(cartActions.addToCart(product));
   };
 
   const thumbnailImg = (
-    <img
-      alt="example"
-      src={product.thumbnail}
-      className={styles.thumbnail}
-    />
+    <img alt="example" src={product.thumbnail} className={styles.thumbnail} />
   );
 
   return (
     <Card hoverable className={styles.card} cover={thumbnailImg}>
-      <Card.Meta
-        title={product.title}
-        description={product.description}
-      />
+      <Card.Meta title={product.title} description={product.description} />
       <button
         type="button"
         className={styles.cart_btn}
