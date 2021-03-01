@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 
 import { Product } from '~/types/product';
@@ -63,8 +63,8 @@ const productSlice = createSlice({
   } as State,
 
   reducers: {
-    selectCategory(state, action: Action) {
-      state.selectedCategoryId = payload;
+    selectCategory(state, action: PayloadAction<string>) {
+      state.selectedCategoryId = action.payload;
     },
   },
 
