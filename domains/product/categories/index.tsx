@@ -2,8 +2,9 @@ import { useDispatch } from 'react-redux';
 import { Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
-import { selectCategory } from './services/slice';
-import styles from './categories.module.scss';
+import { selectCategory } from '../services/slice';
+
+import styles from './styles.module.scss';
 
 type Props = {
   selectedKey: string;

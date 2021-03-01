@@ -6,14 +6,14 @@ import {
   ssrGetResponsiveValue,
 } from '~/utils/ssrGetResponsiveValue';
 import ProductList from '~/domains/product';
-import { CustomerLayout } from '~/components/layouts';
+import { MainLayout } from '~/layouts';
 
 function Home({ responsiveValue }: ResponsiveValueProp) {
   return (
     <ResponsiveProvider value={{ width: responsiveValue }}>
-      <CustomerLayout.Main>
+      <MainLayout>
         <ProductList />
-      </CustomerLayout.Main>
+      </MainLayout>
     </ResponsiveProvider>
   );
 }

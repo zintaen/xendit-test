@@ -2,8 +2,9 @@ import { Skeleton } from 'antd';
 
 import { Product as ProductType } from '~/types/product';
 
-import Product from './product';
-import styles from './list.module.scss';
+import Product from '../product';
+
+import styles from './styles.module.scss';
 
 type Props = {
   products: ProductType[];

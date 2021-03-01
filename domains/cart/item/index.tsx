@@ -6,8 +6,9 @@ import Image from 'next/image';
 import { priceFormatter } from '~/utils';
 import { CartProduct } from '~/types/product';
 
-import { actions } from './services/slice';
-import styles from './item.module.scss';
+import { actions } from '../services/slice';
+
+import styles from './styles.module.scss';
 
 type Props = {
   cartProduct: CartProduct;

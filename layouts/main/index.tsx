@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { useCartState } from '~/domains/cart/services/slice';
 
-import styles from './main.module.scss';
+import styles from './styles.module.scss';
 
 type Props = {
   children: JSX.Element;

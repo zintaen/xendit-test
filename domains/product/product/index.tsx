@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 
 import { Product } from '~/types/product';
 
-import { actions as cartActions } from '../cart/services/slice';
+import { actions as cartActions } from '../../cart/services/slice';
 
-import styles from './product.module.scss';
+import styles from './styles.module.scss';
 
 type Props = {
   product: Product;

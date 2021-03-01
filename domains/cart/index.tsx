@@ -2,7 +2,7 @@ import { Statistic, Empty, Button } from 'antd';
 
 import { useCartState } from './services/slice';
 import CartItem from './item';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 
 function UserCart() {
   const cartState = useCartState();
