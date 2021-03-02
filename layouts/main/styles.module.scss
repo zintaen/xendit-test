@@ -10,7 +10,12 @@
     width: 45px;
   }
 
-  .cart {
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -18,14 +23,16 @@
     transition: 200ms ease;
     background: $color-gray-light;
     color: $color-primary;
+    margin-left: $spacing-xs;
+    border: none;
   }
 
-  .cart_text {
+  .btn_text {
     display: inline-block;
     margin-right: $spacing-xs;
   }
 
-  .cart_icon {
+  .btn_icon {
     font-size: $font-size-h4;
   }
 }

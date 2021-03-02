@@ -1,18 +1,25 @@
 import axios from 'axios';
 
-const baseURL = 'http://demo3312714.mockable.io';
+const baseURL = 'http://localhost:8000';
 
-const domains = {
-  product: '/product',
-  cart: '/cart',
-};
-
-export const productApi = axios.create({
-  baseURL: baseURL + domains.product,
+export const authApi = axios.create({
+  baseURL,
   timeout: 3000,
 });
 
-export const cartApi = axios.create({
-  baseURL: baseURL + domains.cart,
+const api = axios.create({
+  baseURL,
   timeout: 3000,
 });
+
+api.interceptors.request.use((config) => {
+  const token = window.localStorage.getItem('access_token');
+
+  if (token) {
+    config.headers.authorization = token;
+  }
+
+  return config;
+});
+
+export default api;

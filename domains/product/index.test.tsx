@@ -1,5 +1,5 @@
 import { act, render, screen } from '~/utils/testing';
-import { productApi } from '~/utils/api';
+import api from '~/utils/api';
 
 import Component from '.';
 
@@ -28,7 +28,7 @@ describe('render: product list', () => {
       ],
     });
 
-    (productApi.get as jest.Mock).mockImplementationOnce(
+    (api.get as jest.Mock).mockImplementationOnce(
       () => promise
     ) as jest.Mock;
 

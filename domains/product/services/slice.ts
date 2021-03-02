@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Product } from '~/types/product';
 import { StoreState } from '~/store';
-import { productApi } from '~/utils/api';
+import api from '~/utils/api';
 
 type State = {
   isFetching: boolean;
@@ -14,7 +14,7 @@ type State = {
 export const fetchProductList = createAsyncThunk(
   'product/fetchList',
   async ({ categoryId }: { categoryId: string }) => {
-    const response = await productApi.get('');
+    const response = await api.get('/products');
     return response.data;
   }
 );
