@@ -6,13 +6,24 @@ import { authApi } from '~/utils/api';
 
 import { useNotification } from './useNotification';
 
+const authProtectedRoutes: string[] = ['/cart'];
+
 export function useAuth() {
-  const key = 'access_token';
   const notify = useNotification();
   const router = useRouter();
 
   const storage = useRef<typeof window.localStorage | null>(null);
-  const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [isAuth, setIsAuth] = useState<boolean | 'pending'>('pending');
+
+  // Auth protections
+  useEffect(() => {
+    if (isAuth === 'pending') return;
+
+    const isRouteProtected = authProtectedRoutes.includes(router.asPath);
+    if (!isAuth && isRouteProtected) {
+      router.replace('/auth/login');
+    }
+  }, [isAuth]);
 
   useEffect(() => {
     if (window) {
@@ -33,7 +44,7 @@ export function useAuth() {
       try {
         const response = await authApi.post('/auth/login', values);
         const { access_token } = response.data || {};
-        storage.current.setItem(key, `Bearer ${access_token}`);
+        storage.current.setItem('access_token', `Bearer ${access_token}`);
 
         notify.open({
           type: 'success',
@@ -54,7 +65,7 @@ export function useAuth() {
       }
     },
     logout() {
-      storage.current.removeItem(key);
+      storage.current.removeItem('access_token');
       notify.open({
         type: 'info',
         message: 'You are logged out!',

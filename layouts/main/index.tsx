@@ -25,6 +25,8 @@ function MainLayout({ children }: Props) {
   const handleSignIn = () => router.push('/auth/login');
   const handleSignOut = () => auth.logout();
 
+  const availableCart = auth.isAuth && !router.asPath.includes('cart');
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -35,7 +37,7 @@ function MainLayout({ children }: Props) {
         </Link>
 
         <div className={styles.left}>
-          {!router.asPath.includes('cart') && (
+          {availableCart && (
             <Link href="/cart">
               <a className={styles.btn}>
                 <span className={styles.btn_text}>
