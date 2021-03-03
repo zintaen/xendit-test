@@ -18,6 +18,12 @@
   color: $color-primary;
   outline: none;
   margin-top: $spacing-sm;
+
+  &:disabled {
+    opacity: 0.6;
+    filter: grayscale(0.8);
+    cursor: not-allowed;
+  }
 }
 
 .btn {

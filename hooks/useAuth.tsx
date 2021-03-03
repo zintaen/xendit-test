@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect, useRef } from 'react';
 
 import { AuthSubmitPayload } from '~/types';
 import { authApi } from '~/utils/api';
+import { actions, useAuthState } from '~/domains/auth/services/slice';
 
 import { useNotification } from './useNotification';
 
@@ -11,13 +13,18 @@ const authProtectedRoutes: string[] = ['/cart'];
 export function useAuth() {
   const notify = useNotification();
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const { isAuth } = useAuthState();
 
   const storage = useRef<typeof window.localStorage | null>(null);
-  const [isAuth, setIsAuth] = useState<boolean | 'pending'>('pending');
+
+  const updateAuthStatus = (status: boolean) =>
+    dispatch(actions.updateStatus(status));
 
   // Auth protections
   useEffect(() => {
-    if (isAuth === 'pending') return;
+    if (isAuth === '') return;
 
     const isRouteProtected = authProtectedRoutes.includes(router.asPath);
     if (!isAuth && isRouteProtected) {
@@ -34,7 +41,7 @@ export function useAuth() {
   useEffect(() => {
     if (storage.current) {
       const token = storage.current.getItem('access_token');
-      setIsAuth(Boolean(token));
+      updateAuthStatus(Boolean(token));
     }
   }, [storage.current]);
 
@@ -52,7 +59,7 @@ export function useAuth() {
           description: '',
         });
 
-        setIsAuth(true);
+        updateAuthStatus(true);
         router.replace('/');
       } catch (err) {
         if (err.response.status === 401) {
@@ -65,13 +72,13 @@ export function useAuth() {
       }
     },
     logout() {
+      updateAuthStatus(false);
       storage.current.removeItem('access_token');
       notify.open({
         type: 'info',
         message: 'You are logged out!',
         description: '',
       });
-      setIsAuth(false);
     },
   };
 

@@ -1,6 +1,7 @@
 import { Card } from 'antd';
 import { useDispatch } from 'react-redux';
 
+import { useAuth } from '~/hooks';
 import { Product } from '~/types/product';
 
 import { actions as cartActions } from '../../cart/services/slice';
@@ -13,6 +14,7 @@ type Props = {
 
 function ProductItem({ product }: Props) {
   const dispatch = useDispatch();
+  const auth = useAuth();
 
   const handleAddToCart = () => {
     dispatch(cartActions.addToCart(product));
@@ -29,6 +31,7 @@ function ProductItem({ product }: Props) {
         type="button"
         className={styles.cart_btn}
         onClick={handleAddToCart}
+        disabled={!auth.isAuth}
       >
         Add to cart
       </button>
