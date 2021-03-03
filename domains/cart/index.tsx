@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { Statistic, Empty, Button } from 'antd';
 
 import { useCartState } from './services/slice';
@@ -7,6 +8,11 @@ import styles from './styles.module.scss';
 function UserCart() {
   const cartState = useCartState();
   const cartProductList = Object.values(cartState.selectedProducts);
+  const router = useRouter();
+
+  const handleCheckout = () => {
+    router.push('/checkout');
+  };
 
   const totalPrice: number = Object.values(cartState.selectedProducts).reduce(
     (acc, current) => {
@@ -28,7 +34,9 @@ function UserCart() {
           <CartItem cartProduct={cartProduct} />
         ))}
       </div>
-      <Button type="primary">Checkout</Button>
+      <Button type="primary" onClick={handleCheckout}>
+        Checkout
+      </Button>
     </div>
   );
 }

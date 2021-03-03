@@ -8,7 +8,7 @@ import { actions, useAuthState } from '~/domains/auth/services/slice';
 
 import { useNotification } from './useNotification';
 
-const authProtectedRoutes: string[] = ['/cart'];
+const authProtectedRoutes: string[] = ['/cart', '/checkout'];
 
 export function useAuth() {
   const notify = useNotification();
