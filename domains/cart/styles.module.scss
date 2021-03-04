@@ -7,3 +7,10 @@
 .list {
     margin-top: $spacing-md;
 }
+
+@media (max-width: $responsive-tablet) {
+    .container {
+        max-width: 100%;
+        padding: $spacing-md;
+    }
+}

@@ -1,40 +1,66 @@
 .container {
-    display: flex;
-    margin-bottom: $spacing-sm;
-    border: 1px solid $color-gray-light;
-    border-radius: 6px;
-    position: relative;
+  display: flex;
+  align-items: stretch;
+  margin-bottom: $spacing-sm;
+  border: 1px solid $color-gray-light;
+  border-radius: 6px;
+  position: relative;
 }
 
 .thumbnail {
-    position: relative;
-    width: 90px;
-    height: 100px;
-    
-    img {
-        border-radius: 6px 0 0 6px;
-    }
+  position: relative;
+  width: 90px;
+  min-width: 90px;
+
+  img {
+    border-radius: 6px 0 0 6px;
+  }
 }
 
 .information {
-    flex-grow: 1;
-    padding: $spacing-xs $spacing-sm;
+  padding: $spacing-xs $spacing-sm;
+
+  p {
+      line-height: 24px;
+      height: calc(24px * 2);
+      overflow: hidden;
+      margin-bottom: 0;
+  }
 }
 
 .price {
-    color: $color-secondary;
-    padding: $spacing-xs $spacing-sm;
+  color: $color-secondary;
+  padding: $spacing-xs $spacing-sm;
 }
 
 .counter {
-    width: 50px;
+  width: 50px;
 }
 
 .delete {
-    position: absolute;
-    cursor: pointer;
-    font-size: $font-size-h4;
-    color: $color-secondary;
-    bottom: $spacing-sm;
-    right: $spacing-sm;
+  position: absolute;
+  cursor: pointer;
+  font-size: $font-size-h4;
+  color: $color-secondary;
+  bottom: $spacing-sm;
+  right: $spacing-sm;
+}
+
+.info_wrapper {
+    width: calc(100% / 90px);
+}
+
+@media (max-width: $responsive-tablet) {
+    .thumbnail {
+        width: 25%;
+        min-width: 25%;
+    }
+
+    .info_wrapper {
+        width: 75%;
+    }
+
+    .price {
+        font-size: 13px;
+    }
 }

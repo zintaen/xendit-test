@@ -2,3 +2,10 @@
     display: flex;
     padding: $spacing-xs;
 }
+
+@media (max-width: $responsive-tablet) {
+    .container {
+        flex-direction: column;
+        padding: $spacing-xs $spacing-md;
+    }
+}

@@ -39,3 +39,10 @@
 .btn {
   margin-top: $spacing-sm;
 }
+
+@media (max-width: $responsive-tablet) {
+  .card {
+    width: 100%;
+    margin: 0 auto 16px auto;
+  }
+}

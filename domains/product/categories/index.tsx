@@ -25,6 +25,7 @@ function Categories({ selectedKey }: Props) {
         switcherIcon={<DownOutlined />}
         defaultExpandedKeys={['0-0-0']}
         treeData={[
+          { title: 'Show all', key: '' },
           {
             title: 'Fashion',
             key: 'fashion',

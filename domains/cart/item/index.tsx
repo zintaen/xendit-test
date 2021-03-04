@@ -16,9 +16,7 @@ type Props = {
 
 function CartItem({ cartProduct }: Props) {
   const dispatch = useDispatch();
-  const {
-    thumbnail, title, description, price, amount
-  } = cartProduct;
+  const { thumbnail, title, description, price, amount } = cartProduct;
 
   const handleConfirmDel = () => {
     dispatch(actions.deleteFromCart(cartProduct.id));
@@ -39,20 +37,22 @@ function CartItem({ cartProduct }: Props) {
         <Image alt="Cart item" src={thumbnail} layout="fill" />
       </div>
 
-      <div className={styles.information}>
-        <h4 className={styles.title}>{title}</h4>
-        <p className={styles.desc}>{description}</p>
-      </div>
+      <div className={styles.info_wrapper}>
+        <div className={styles.information}>
+          <h4 className={styles.title}>{title}</h4>
+          <p className={styles.desc}>{description}</p>
+        </div>
 
-      <div className={styles.price}>
-        {priceFormatter.format(price)} x{' '}
-        <InputNumber
-          min={1}
-          className={styles.counter}
-          defaultValue={amount}
-          onChange={handleChangeProductAmount}
-        />{' '}
-        <span>=</span> {priceFormatter.format(price * amount)}
+        <div className={styles.price}>
+          {priceFormatter.format(price)} x{' '}
+          <InputNumber
+            min={1}
+            className={styles.counter}
+            defaultValue={amount}
+            onChange={handleChangeProductAmount}
+          />{' '}
+          <span>=</span> {priceFormatter.format(price * amount)}
+        </div>
       </div>
 
       <Popconfirm

@@ -3,3 +3,9 @@
     list-style: none;
     flex-wrap: wrap;
 }
+
+@media (max-width: $responsive-tablet) {
+    .list {
+        flex-direction: column;
+    }
+}
