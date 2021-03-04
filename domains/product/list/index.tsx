@@ -1,4 +1,4 @@
-import { Skeleton } from 'antd';
+import { Skeleton, Empty } from 'antd';
 
 import { Product as ProductType } from '~/types/product';
 
@@ -15,9 +15,13 @@ function ProductList({ products, isFetching }: Props) {
   return (
     <Skeleton loading={isFetching}>
       <div className={styles.list}>
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
+        {products?.length ? (
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
+        ) : (
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+        )}
       </div>
     </Skeleton>
   );

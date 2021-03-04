@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
+import { AxiosRequestConfig } from 'axios';
 
 import { Product } from '~/types/product';
 import { StoreState } from '~/store';
@@ -13,8 +14,8 @@ type State = {
 
 export const fetchProductList = createAsyncThunk(
   'product/fetchList',
-  async ({ categoryId }: { categoryId: string }) => {
-    const response = await api.get('/products');
+  async (params: AxiosRequestConfig) => {
+    const response = await api.get('/products', params || {});
     return response.data;
   }
 );

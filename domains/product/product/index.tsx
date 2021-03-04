@@ -26,7 +26,8 @@ function ProductItem({ product }: Props) {
 
   return (
     <Card hoverable className={styles.card} cover={thumbnailImg}>
-      <Card.Meta title={product.title} description={product.description} />
+      <Card.Meta title={product.title} />
+      <p className={styles.desc}>{product.description}</p>
       <button
         type="button"
         className={styles.cart_btn}

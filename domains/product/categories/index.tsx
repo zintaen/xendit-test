@@ -27,37 +27,37 @@ function Categories({ selectedKey }: Props) {
         treeData={[
           {
             title: 'Fashion',
-            key: '0',
+            key: 'fashion',
           },
           {
             title: 'Shoes',
-            key: '1',
+            key: 'shoes',
             children: [
               {
                 title: 'Adidas',
-                key: '1.0',
+                key: 'shoes-adidas',
               },
               {
                 title: 'Nike',
-                key: '1.1',
+                key: 'shoes-nike',
               },
               {
                 title: 'New balance',
-                key: '1.2',
+                key: 'shoes-newbalance',
               },
             ],
           },
           {
             title: 'Technologies',
-            key: '2',
+            key: 'tech',
             children: [
               {
                 title: 'Macbook Pro',
-                key: '2.0',
+                key: 'tech-macpro',
               },
               {
                 title: 'Macbook Air',
-                key: '2.1',
+                key: 'tech-macair',
               },
             ],
           },

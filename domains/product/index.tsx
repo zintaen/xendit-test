@@ -12,12 +12,14 @@ function ProductList() {
   const { selectedCategoryId } = productState;
 
   useEffect(() => {
-    dispatch(fetchProductList({ categoryId: '' }));
+    dispatch(fetchProductList({}));
   }, []);
 
   useEffect(() => {
     if (selectedCategoryId) {
-      dispatch(fetchProductList({ categoryId: selectedCategoryId }));
+      dispatch(
+        fetchProductList({ params: { categoryId: selectedCategoryId } })
+      );
     }
   }, [selectedCategoryId]);
 
