@@ -46,7 +46,8 @@ Run `yarn start` or `npm start` to start to run your production built version.
 
 ## Requirement checklist
 
-- [x] SVG format logo with cursor interaction
+- [x] SVG format logo
+- [x] Responsive adapted
 - [x] Optimized and lazy load images (Use [Next's image optimize built-in component](https://nextjs.org/docs/basic-features/image-optimization))
 - [x] Fetch/Load data with Skeleton placeholder
 - [x] Use **[Redux](https://redux-toolkit.js.org/tutorials/basic-tutorial)** library for State management (Redux-toolkit supported)
