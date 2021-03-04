@@ -12,15 +12,8 @@ function ProductList() {
   const { selectedCategoryId } = productState;
 
   useEffect(() => {
-    dispatch(fetchProductList({}));
-  }, []);
-
-  useEffect(() => {
-    if (selectedCategoryId) {
-      dispatch(
-        fetchProductList({ params: { categoryId: selectedCategoryId } })
-      );
-    }
+    const params = selectedCategoryId ? { categoryId: selectedCategoryId } : {};
+    dispatch(fetchProductList({ params }));
   }, [selectedCategoryId]);
 
   return (
