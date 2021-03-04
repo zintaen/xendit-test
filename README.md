@@ -37,8 +37,9 @@ I read about this structure in this blog (the last section): [React Folder Struc
 Below is necessary steps to continue contribute to this application
 
 1. Clone this repository
-2. Install node_modules by run the `yarn` or `npm install`
-3. Run `yarn dev` or `npm run dev` to start development mode
+2. Create an `.env.local` file with the content `NEXT_PUBLIC_API_URL=https://young-sea-21208.herokuapp.com`
+3. Install node_modules by run the `yarn` or `npm install`
+4. Run `yarn dev` or `npm run dev` to start development mode
 
 Run `yarn build` or `npm run build` to build production optimization version.
 
